@@ -1,0 +1,19 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+  integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+  <div class="container-fluid">
+      <a  (click)="goback()"  ><span class="back glyphicon glyphicon-hand-left">
+      </span>&nbsp;&nbsp;&nbsp;&nbsp;Back</a><br/>
+      <h1 class="ttl">{{title}}</h1>
+  <br/>
+  <div class="parent">
+      <a class="childlink" [routerLink]="[allregions]">All Regions</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a class="childlink" (click)="gofilter()" style="color:navy;">Filters</a>
+  </div>
+          <router-outlet></router-outlet>    
+      
+    
+
+  </div>  
+

@@ -1,0 +1,18 @@
+<div class="card" >
+    <h4 class="card-header">All Regions</h4>
+    <ul class="list-group list-group-flush" *ngFor ="let i of finalarray">
+        <li  class="list-group-item"><span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;<a 
+         (click)="showdetails(curname=i)">{{i}}</a></li>
+    </ul>
+</div>
+<br/><br/>
+
+<div class="card" id="showdiv" *ngIf="show" >
+    <h3 class="card-header">{{r}}</h3>
+  <div class="card-body">
+    <ul class="list-group list-group-flush" *ngFor ="let c of ctrdetails">
+      <li class="list-group-item"><span class="glyphicon glyphicon-grain"></span>&nbsp;&nbsp;<a 
+      (click)="gotocountry()">{{c}}</a></li>
+  </ul>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+.container-fluid {
+    background-color:honeydew;
+    min-height: 100vh;
+}
+.ttl {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(41, 13, 65);
+    text-shadow: 2px 3px 1px lightslategrey;
+}
+.parent {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:auto ;
+    padding: 20px;
+}
+.childlink {
+    font-family:'Trebuchet MS',sans-serif;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+     color:indigo;
+    font-size: 3rem;
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 6vw;
+    text-decoration-line: none;
+    border-radius: 20px;
+    background-color: cornflowerblue
+}
+.childlink:hover {
+    color:slateblue;
+}
+.btn-group .btn {
+    border:lightslategray 3px;
+    box-shadow:1px 4px 3px lightslategray;
+    color: beige;
+    background-color: rgba(15, 42, 59, 0.925);
+    font-family: 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+}
+.dropdown-menu .list-group .list-group-item {
+    color: beige;
+    background-color: rgba(15, 42, 59, 0.925);
+    font-family: 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+    min-width:17vw;
+}
+.list-group .list-group-item a {
+    overflow: hidden;
+    text-decoration-line: none;
+    cursor: pointer;
+    min-width:17vw;
+}
+.card .list-group .list-group-item a:hover {
+    font-weight: 600;
+    color: moccasin;
+    text-decoration-line: overline;
+    cursor: pointer;
+}
+.carddiv  {
+    width:50vw;
+    background-color:cornsilk ;
+    color:  darkslateblue;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 2rem;
+}
+.card-title {
+    font-size: 2rem;
+}
+.carddiv .card-img-top {
+    width:38vw;
+}
+
+@media screen and (min-width: 390px) and (max-width: 510px) {
+    .container-fluid .ttl {
+        font-size: 4rem;
+    }
+    .carddiv  {
+        font-size: 1.5rem;
+    }
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .childlink {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .dropdown-menu .list-group .list-group-item {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 300px) and (max-width: 389px) {
+    .container-fluid .ttl {
+        font-size: 3rem;
+    }
+    .carddiv  {
+        font-size: 1.5rem;
+    }
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .childlink {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    .dropdown-menu .list-group .list-group-item {
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width: 200px) and (max-width: 299px) {
+    .container-fluid .ttl {
+        font-size: 2rem;
+    }
+    .carddiv  {
+        font-size: 1rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .childlink {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .dropdown-menu .list-group .list-group-item {
+        font-size: 1rem;
+    }
+    
+}

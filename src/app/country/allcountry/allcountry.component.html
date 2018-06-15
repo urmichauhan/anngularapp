@@ -1,0 +1,51 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+  integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<div class="parent">
+    <button type="button" class="btn childlink" (click)="getcountries()">All Contries</button>
+    <button type="button" class="btn childlink" (click)="gotosinglecon()">Single Country</button>
+</div>
+
+<div *ngIf="showr" >
+  <div class="btn-group" style="border-radius:10px;margin-right: 30vw">
+    <button type="button" class="btn btn-lg">Regions</button>
+    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu">
+        <ul class="list-group list-group-flush" *ngFor ="let i of finalarray">
+            <li  class="list-group-item"><span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;<a 
+             (click)="showdetails(curname=i)">{{i}}</a></li>
+        </ul>
+    </div>
+  </div>
+  
+  <div class="btn-group" *ngIf="show" style="border-radius:10px;">
+      <button type="button" class="btn btn-lg">{{r}}</button>
+      <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+          <ul class="list-group list-group-flush" *ngFor ="let c of ctrdetails">
+              <li  class="list-group-item"><span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;<a 
+               (click)="getcountriesdetails(cnname=c)">{{c}}</a></li>
+          </ul>
+      </div>
+    </div>
+</div>  
+<br/>
+<!-- Show current contries information -->
+
+    <div class="card carddiv"  *ngIf="cntrdet">
+      <img class="card-img-top" [src]="f">
+      <div class="card-body">
+        <h5 class="card-title">Name<span class="glyphicon glyphicon-triangle-right"></span>&nbsp;{{n}}</h5>
+        <p class="card-text">Capital: &nbsp;{{cap}}<br/>subregion<span class="glyphicon glyphicon-triangle-right"></span>&nbsp;{{subr}}</p>
+        <p class="card-text" *ngFor ="let cr of curr">Currencies<span class="glyphicon glyphicon-triangle-right"></span>&nbsp;{{cr}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted" *ngFor ="let t of tim">TimeZones<span class="glyphicon glyphicon-triangle-right"></span>&nbsp;{{t}}</small>
+      
+      </div>
+    </div>

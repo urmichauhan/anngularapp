@@ -1,0 +1,85 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" 
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  </head>
+  <div class="parent">
+      <button type="button" class="btn childlink" (click)="getcurren()">Currency</button>
+      <button type="button" class="btn childlink" (click)="golan()">Languages</button>
+  </div>
+
+
+  <div  *ngIf="showr">
+      <div class="btn-group" style="border-radius:10px;margin-right: 30vw">
+        <button type="button" class="btn btn-lg">Currencies</button>
+        <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+            <ul class="list-group list-group-flush" *ngFor ="let i of finalarray">
+                <li  class="list-group-item"><span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;<a 
+                 (click)="showdetails(curname=i)">{{i}}</a></li>
+            </ul>
+        </div>
+      </div>
+      
+      <div class="btn-group" *ngIf="show" style="border-radius:10px;">
+          <button type="button" class="btn btn-lg">{{r}}</button>
+          <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu">
+              <ul class="list-group list-group-flush" *ngFor ="let c of ctrdetails">
+                  <li  class="list-group-item"><span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;<a 
+                   (click)="getcountriesdetails(cnname=c)">{{c}}</a></li>
+              </ul>
+          </div>
+        </div>
+    </div>  
+    <br/>
+    <!-- Show current contries information -->
+    
+        <div class="card carddiv"  *ngIf="cntrdet">
+          <img class="card-img-top" [src]="mydata.flag">
+          <div class="card-body">
+            <h5 class="card-title"><b>Name<span class="glyphicon glyphicon-chevron-right	"></span></b>&nbsp;{{mydata.name}}</h5>
+            <p class="card-text"><b>Capital<span class="glyphicon glyphicon-chevron-right	"></span></b>&nbsp;{{mydata.capital}}</p>
+            <p class="card-text"><b>Region<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.region}}</p>
+            <p class="card-text"><b>Subregion<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.subregion}}</p>
+            <p class="card-text" ><b>Alpha2Code<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.alpha2Code}}</p>
+            <p class="card-text" ><b>Alpha3Code<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.alpha3Code}}</p>
+            <p class="card-text" ><b>Population<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.population}}</p>
+            <p class="card-text" ><b>Demonym<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.demonym}}</p>
+            <p class="card-text" ><b>Area<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.area}}</p>
+            <p class="card-text" ><b>Gini<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.gini}}</p>
+            <p class="card-text" ><b>NativeName<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.nativeName}}</p>
+            <p class="card-text" ><b>NumericCode<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.numericCode}}</p>
+            <p class="card-text" *ngFor="let cr of mydata.currencies"><b>Currencies<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b><br/>
+              Code:&nbsp;{{cr.code}}<br/>
+              Name:&nbsp;{{cr.name}}<br/>
+              Symbol:&nbsp;{{cr.symbol}}<br/></p>
+            <p class="card-text" *ngFor ="let tp of mydata.topLevelDomain"><b>TopLevelDomain<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{tp}}</p>
+            <p class="card-text" *ngFor ="let cc of mydata.callingCodes"><b>CallingCodes<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{cc}}</p>
+            <p class="card-text" ><b>AltSpellings<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>
+              <span *ngFor ="let al of mydata.altSpellings">{{al}}<br/></span></p>
+            <p class="card-text" ><b>Latlng<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b><span *ngFor ="let la of mydata.latlng">{{la}}<br/></span></p>
+            <p class="card-text"><b>borders<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b><span *ngFor ="let b of mydata.borders">{{b}}<br/></span></p>
+            <p class="card-text" ><b>Languages<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b><span *ngFor ="let lan of mydata.languages"><br/>
+              iso639_1 :&nbsp;{{lan.iso639_1}}<br/>
+              iso639_2 :&nbsp;{{lan.iso639_2}}<br/>
+              Name :&nbsp;{{lan.name}}<br/>
+              NativeName:&nbsp;{{lan.nativeName}}<br/></span></p>
+             <p class="card-text" ><b>Translations<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>           
+                   <span *ngFor="let trs of mydata.translations | trans">{{trs.key}}<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp; {{trs.value}}<br/></span>
+            </p> 
+            <p class="card-text" ><b>RegionalBlocs<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b><span *ngFor ="let rb of mydata.regionalBlocs"><br/>
+              Acronym:&nbsp;{{rb.acronym}}<br/>
+              Name:&nbsp;{{rb.name}}<br/>
+              OtherAcronyms:&nbsp;<span *ngFor ="let rbn of rb.otherAcronyms"></span>{{rbn}}<br/>
+              OtherNames:&nbsp;<span *ngFor ="let rbo of rb.otherNames"></span>{{rbo}}<br/></span></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted" ><b>TimeZones<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b><span *ngFor ="let tz of mydata.timezones">{{tz}}<br/></span></small><br/>
+            <small class="text-muted" ><b>Cioc<span class="glyphicon glyphicon-chevron-right	"></span>&nbsp;</b>{{mydata.cioc}}</small>
+          </div>
+        </div>
+    
